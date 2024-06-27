@@ -65,7 +65,7 @@ const vuetify = createVuetify({
     themes: {
       light: {
         colors: {
-          primary: "#062AAA",
+          primary: "#e63c9c",
           surface: "#FFFFFF",
           background: "#f3f3f3",
           "surface-variant": "#fff",
@@ -82,7 +82,7 @@ const vuetify = createVuetify({
       dark: {
         dark: true,
         colors: {
-          primary: "#ececf1",
+          primary: "#ff30b0",
           surface: "#292a2d",
           background: "#1a1a20",
           "surface-variant": "#131419",

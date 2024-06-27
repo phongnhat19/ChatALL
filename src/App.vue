@@ -208,7 +208,6 @@ const onUpdatedSystemTheme = async () => {
 const currentChat = useObservable(
   liveQuery(() => {
     const chat = Chats.table.orderBy("selectedTime").last();
-    console.log("chat changed");
     return chat;
   }),
   { initialValue: {} },
