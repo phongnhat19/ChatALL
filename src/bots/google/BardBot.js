@@ -154,14 +154,19 @@ export default class BardBot extends Bot {
   }
 
   async _checkAvailability() {
-    const context = await this.getChatContext();
-    let available = false;
+    try {
+      const context = await this.getChatContext();
+      let available = false;
 
-    if (context.requestParams.atValue) {
-      available = true;
+      if (context.requestParams.atValue) {
+        available = true;
+      }
+
+      return available;
+    } catch (error) {
+      console.error(error);
+      return false;
     }
-
-    return available;
   }
 
   async _sendPrompt(prompt, onUpdateResponse, callbackParam) {
