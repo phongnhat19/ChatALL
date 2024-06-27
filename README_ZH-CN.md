@@ -4,6 +4,8 @@
 
 [Deutsch](README_DE-DE.md) | [English](README.md) | [Español](README_ES-ES.md) | [Français](README_FR-FR.md) | [Italian](README_IT-IT.md) | [日本語](README_JA-JP.md) | [한국어](README_KO-KR.md) | [Русский](README_RU-RU.md) | [Tiếng Việt](README_VI-VN.md) | 简体中文
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sunner/ChatALL)
+
 </div>
 
 ## 屏幕截图
@@ -24,35 +26,39 @@ ChatALL 的典型用户是：
 
 ### 支持的 AI
 
-| AI 机器人                                                                      | 网页访问 | API      | 说明                                     |
-| ------------------------------------------------------------------------------ | -------- | -------- | ---------------------------------------- |
-| [ChatGPT](https://chat.openai.com)                                             | 支持     | 支持     | 包含 Web Browsing、Azure OpenAI service  |
-| [Bing Chat](https://www.bing.com/new)                                          | 支持     | 无 API   | 不需要帐号                               |
-| [文心一言](https://yiyan.baidu.com/)                                           | 否       | 支持     |                                          |
-| [Bard](https://bard.google.com/)                                               | 支持     | 即将推出 |                                          |
-| [Poe](https://poe.com/)                                                        | 支持     | 即将推出 |                                          |
-| [MOSS](https://moss.fastnlp.top/)                                              | 支持     | 无 API   |                                          |
-| [通义千问](http://tongyi.aliyun.com/)                                          | 支持     | 即将推出 |                                          |
-| [得到学习助手](https://ai.dedao.cn/)                                           | 即将推出 | 无 API   |                                          |
-| [讯飞星火](http://xinghuo.xfyun.cn/)                                           | 支持     | 即将推出 |                                          |
-| [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)                     | 支持     | 无 API   | 不需要帐号                               |
-| [Vicuna 7B、13B 和 33B](https://lmsys.org/blog/2023-03-30-vicuna/)             | 支持     | 无 API   | 不需要帐号                               |
-| [ChatGLM2 6B 和 130B](https://chatglm.cn/blog)                                 | 支持     | 无 API   | 不需要帐号                               |
-| [Claude 2 和 Instant](https://www.anthropic.com/index/claude-2)                | 支持     | 无 API   | 不需要帐号                               |
-| [Gradio](httpps://gradio.app/)                                                 | 支持     | 无 API   | 用于 Hugging Face space 或自己部署的模型 |
-| [HuggingChat](https://huggingface.co/chat/)                                    | 支持     | 无 API   |
-| [天工](https://neice.tiangong.cn/)                                             | 支持     | 即将推出 |                                          |
-| [You](https://you.com/)                                                        | 支持     | 无 API   |                                          |
-| [Pi](https://pi.ai)                                                            | 支持     | 无 API   |                                          |
-| [360 智脑](https://ai.360.cn/)                                                 | 支持     | 无       |                                          |
-| [YouChat](https://you.com/)                                                    | 支持     | 无       |                                          |
-| [Open Assistant](https://open-assistant.io/)                                   | 支持     | 无       |                                          |
-| [Character.AI](https://character.ai/)                                          | 支持     | 无       |                                          |
-| [Llama 2 7B、13B 和 70B](https://ai.meta.com/llama/)                           | 支持     | 无 API   |                                          |
-| [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) | 支持     | 无 API   |                                          |
-| [WizardLM 13B 和 70B](https://github.com/nlpxucan/WizardLM)                    | 支持     | 无 API   |                                          |
-| [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B-chat)                  | 支持     | 无 API   |                                          |
-| [Phind](https://www.phind.com/)                                                | 支持     | 无 API   |                                          |
+| AI 机器人                                                                      | 网页访问 | API      | 说明                                       |
+| ------------------------------------------------------------------------------ | -------- | -------- | ------------------------------------------ |
+| [360 智脑](https://ai.360.cn/)                                                 | 支持     | 无       |                                            |
+| [文心一言](https://yiyan.baidu.com/)                                           | 否       | 支持     |                                            |
+| [Character.AI](https://character.ai/)                                          | 支持     | 无       |                                            |
+| [ChatGLM2 6B 和 130B](https://chatglm.cn/)                                     | 支持     | 无 API   | 不需要帐号                                 |
+| [ChatGPT](https://chat.openai.com)                                             | 支持     | 支持     | 包含 Web Browsing、Azure OpenAI service    |
+| [Claude](https://www.anthropic.com/claude)                                     | 支持     | 支持     |                                            |
+| [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) | 支持     | 无 API   |                                            |
+| [Cohere Command R 系列模型](https://cohere.com/command)                        | 否       | 支持     |                                            |
+| [Copilot](https://copilot.microsoft.com/)                                      | 支持     | 无 API   |                                            |
+| [得到学习助手](https://ai.dedao.cn/)                                           | 即将推出 | 无 API   |                                            |
+| [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B-chat)                  | 支持     | 无 API   |                                            |
+| [Gemini](https://gemini.google.com/)                                           | 支持     | 支持     |                                            |
+| [Gemma 2B & 7B](https://blog.google/technology/developers/gemma-open-models/)  | 支持     | 无       |                                            |
+| [Gradio](https://gradio.app/)                                                  | 支持     | 无 API   | 用于 Hugging Face space 或自己部署的模型   |
+| [Groq Cloud](https://console.groq.com/docs/models)                             | 否       | 支持     |                                            |
+| [HuggingChat](https://huggingface.co/chat/)                                    | 支持     | 无 API   |                                            |
+| [讯飞星火](http://xinghuo.xfyun.cn/)                                           | 支持     | 即将推出 |                                            |
+| [Kimi](https://kimi.moonshot.cn/)                                              | 支持     | 无 API   |                                            |
+| [Llama 2 13B 和 70B](https://ai.meta.com/llama/)                               | 支持     | 无 API   |                                            |
+| [MOSS](https://moss.fastnlp.top/)                                              | 支持     | 无 API   |                                            |
+| [Perplexity](https://www.perplexity.ai/)                                       | 支持     | 无       |                                            |
+| [Phind](https://www.phind.com/)                                                | 支持     | 无 API   |                                            |
+| [Pi](https://pi.ai)                                                            | 支持     | 无 API   |                                            |
+| [Poe](https://poe.com/)                                                        | 支持     | 即将推出 |                                            |
+| [天工](https://neice.tiangong.cn/)                                             | 支持     | 即将推出 |                                            |
+| [通义千问](http://tongyi.aliyun.com/)                                          | 支持     | 即将推出 |                                            |
+| [Vicuna 13B 和 33B](https://lmsys.org/blog/2023-03-30-vicuna/)                 | 支持     | 无 API   | 不需要帐号                                 |
+| [WizardLM 70B](https://github.com/nlpxucan/WizardLM)                           | 支持     | 无 API   |                                            |
+| [YouChat](https://you.com/)                                                    | 支持     | 无       |                                            |
+| [You](https://you.com/)                                                        | 支持     | 无 API   |                                            |
+| [Zephyr](https://huggingface.co/spaces/HuggingFaceH4/zephyr-chat)              | 支持     | 无       |                                            |
 
 还会有更多。[到这里](https://github.com/sunner/ChatALL/labels/more%20LLMs)为你喜欢的 AI 投票吧。
 
@@ -65,7 +71,7 @@ ChatALL 的典型用户是：
 - 在一列、两列或三列视图之间切换
 - 自动更新到最新版
 - 夜间模式（由 @tanchekwei 贡献）
-- 快捷键。按 `Ctrl + /` 可以看到所有快捷键（由 @tanchekwei 贡献）
+- 快捷键。按 <kbd>Ctrl</kbd> + <kbd>/</kbd> 可以看到所有快捷键（由 @tanchekwei 贡献）
 - 多对话窗口（由 @tanchekwei 贡献）
 - 支持设置代理（由 @msaong 贡献）
 - 提示词管理（由 @tanchekwei 贡献）
@@ -122,7 +128,7 @@ brew install --cask chatall
 
 使用中如果遇到问题，可以尝试如下方法解决：
 
-1. **刷新** - 按下 `Ctrl + R` 或 `Cmd + R`。
+1. **刷新** - 按下 <kbd>Ctrl</kbd> + <kbd>R</kbd> 或 <kbd>⌘</kbd> + <kbd>R</kbd>。
 2. **重启** - 退出 ChatALL，再重新运行。
 3. **重新登录** - 点击右上角的设置按钮，在弹出的窗口中点击对应的登入/登出链接，重新登录网站。
 4. **创建新对话** - 创建一个新对话，再发送提示词。
@@ -175,12 +181,14 @@ npm run electron:build -- -wml --x64 --arm64
 ### 其它
 
 - GPT-4 贡献了大部分代码
-- ChatGPT，Bing Chat 和 Google 提供了许多解决方案（排名分先后）
+- ChatGPT，Copilot 和 Google 提供了许多解决方案（排名分先后）
 - 受 [ChatHub](https://github.com/chathub-dev/chathub) 启发。致敬！
 
 ## 赞助
 
-如果您喜欢这个项目，可以通过以下方式支持：
+本项目的支持经费来自于：
 
-<img src="https://sunner.cn/sponsor/alipay.jpg" width="200" />
-<img src="https://sunner.cn/sponsor/wepay.jpg" width="200" />
+1. [AI 大模型全栈工程师培养计划 - AGIClass.ai](https://agiclass.ai)
+2. [孙志岗讲解 AI 为什么](https://note.mowen.cn/note-intro/?noteUuid=vKwymX8n5BEpqD5nCZPRo)
+
+欢迎传播、购买以上课程和专栏来支持本项目，谢谢。

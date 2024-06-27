@@ -4,6 +4,8 @@
 
 [Deutsch](README_DE-DE.md) | English | [Español](README_ES-ES.md) | [Français](README_FR-FR.md) | [Italian](README_IT-IT.md) | [日本語](README_JA-JP.md) | [한국어](README_KO-KR.md) | [Русский](README_RU-RU.md) | [Tiếng Việt](README_VI-VN.md) | [简体中文](README_ZH-CN.md)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sunner/ChatALL)
+
 </div>
 
 ## Screenshots
@@ -26,33 +28,36 @@ Typical users of ChatALL are:
 
 | AI Bots                                                                        | Web Access  | API         | Notes                                       |
 | ------------------------------------------------------------------------------ | ----------- | ----------- | ------------------------------------------- |
-| [ChatGPT](https://chat.openai.com)                                             | Yes         | Yes         | Web Browsing, Azure OpenAI service included |
-| [Bing Chat](https://www.bing.com/new)                                          | Yes         | No API      |                                             |
-| [Baidu ERNIE](https://yiyan.baidu.com/)                                        | No          | Yes         |                                             |
-| [Bard](https://bard.google.com/)                                               | Yes         | Coming soon |                                             |
-| [Poe](https://poe.com/)                                                        | Yes         | Coming soon |                                             |
-| [MOSS](https://moss.fastnlp.top/)                                              | Yes         | No API      |                                             |
-| [Tongyi Qianwen](http://tongyi.aliyun.com/)                                    | Yes         | Coming soon |                                             |
-| [Dedao Learning Assistant](https://ai.dedao.cn/)                               | Coming soon | No API      |                                             |
-| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                                      | Yes         | Coming soon |                                             |
-| [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)                     | Yes         | No API      | No Login required                           |
-| [Vicuna 7B, 13B & 33B](https://lmsys.org/blog/2023-03-30-vicuna/)              | Yes         | No API      | No Login required                           |
-| [ChatGLM2 6B & 130B](https://chatglm.cn/)                                      | Yes         | No API      | No Login required                           |
-| [Claude 2 & Instant](https://www.anthropic.com/index/claude-2)                 | Yes         | No API      |                                             |
-| [Gradio](https://gradio.app/)                                                  | Yes         | No API      | For Hugging Face space/self-deployed models |
-| [HuggingChat](https://huggingface.co/chat/)                                    | Yes         | No API      |                                             |
-| [SkyWork](https://neice.tiangong.cn/)                                          | Yes         | Coming soon |                                             |
-| [You](https://you.com/)                                                        | Yes         | No API      |                                             |
-| [Pi](https://pi.ai)                                                            | Yes         | No API      |                                             |
 | [360 AI Brain](https://ai.360.cn/)                                             | Yes         | No API      |                                             |
-| [YouChat](https://you.com/)                                                    | Yes         | No API      |                                             |
-| [Open Assistant](https://open-assistant.io/)                                   | Yes         | No API      |                                             |
+| [Baidu ERNIE](https://yiyan.baidu.com/)                                        | No          | Yes         |                                             |
 | [Character.AI](https://character.ai/)                                          | Yes         | No API      |                                             |
-| [Llama 2 7B, 13B & 70B](https://ai.meta.com/llama/)                            | Yes         | No API      |                                             |
+| [ChatGLM2 6B & 130B](https://chatglm.cn/)                                      | Yes         | No API      | No Login required                           |
+| [ChatGPT](https://chat.openai.com)                                             | Yes         | Yes         | Web Browsing, Azure OpenAI service included |
+| [Claude](https://www.anthropic.com/claude)                                     | Yes         | Yes         |                                             |
 | [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) | Yes         | No API      |                                             |
-| [WizardLM 13B & 70B](https://github.com/nlpxucan/WizardLM)                     | Yes         | No API      |                                             |
+| [Cohere Command R Models](https://cohere.com/command)                          | No          | Yes         |                                             |
+| [Copilot](https://copilot.microsoft.com/)                                      | Yes         | No API      |                                             |
+| [Dedao Learning Assistant](https://ai.dedao.cn/)                               | Coming soon | No API      |                                             |
 | [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B-chat)                  | Yes         | No API      |                                             |
+| [Gemini](https://gemini.google.com/)                                           | Yes         | Yes         |                                             |
+| [Gemma 2B & 7B](https://blog.google/technology/developers/gemma-open-models/)  | Yes         | No API      |                                             |
+| [Gradio](https://gradio.app/)                                                  | Yes         | No API      | For Hugging Face space/self-deployed models |
+| [Groq Cloud](https://console.groq.com/docs/models)                             | No          | Yes         |                                             |
+| [HuggingChat](https://huggingface.co/chat/)                                    | Yes         | No API      |                                             |
+| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                                      | Yes         | Coming soon |                                             |
+| [Kimi](https://kimi.moonshot.cn/               )                               | Yes         | No API      |                                             |
+| [Llama 2 13B & 70B](https://ai.meta.com/llama/)                                | Yes         | No API      |                                             |
+| [MOSS](https://moss.fastnlp.top/)                                              | Yes         | No API      |                                             |
+| [Perplexity](https://www.perplexity.ai/)                                       | Yes         | No API      |                                             |
 | [Phind](https://www.phind.com/)                                                | Yes         | No API      |                                             |
+| [Pi](https://pi.ai)                                                            | Yes         | No API      |                                             |
+| [Poe](https://poe.com/)                                                        | Yes         | Coming soon |                                             |
+| [SkyWork](https://neice.tiangong.cn/)                                          | Yes         | Coming soon |                                             |
+| [Tongyi Qianwen](http://tongyi.aliyun.com/)                                    | Yes         | Coming soon |                                             |
+| [Vicuna 13B & 33B](https://lmsys.org/blog/2023-03-30-vicuna/)                  | Yes         | No API      | No Login required                           |
+| [WizardLM 70B](https://github.com/nlpxucan/WizardLM)                           | Yes         | No API      |                                             |
+| [YouChat](https://you.com/)                                                    | Yes         | No API      |                                             |
+| [You](https://you.com/)                                                        | Yes         | No API      |                                             |
 | [Zephyr](https://huggingface.co/spaces/HuggingFaceH4/zephyr-chat)              | Yes         | No API      |                                             |
 
 More is coming. Upvote your favorite bots in [these issues](https://github.com/sunner/ChatALL/labels/more%20LLMs).
@@ -66,7 +71,7 @@ More is coming. Upvote your favorite bots in [these issues](https://github.com/s
 - Switch between one, two, or three-column view
 - Auto update to the latest version
 - Dark mode (contributed by @tanchekwei)
-- Short keys. Press `Ctrl + /` to know all of them (contributed by @tanchekwei)
+- Short keys. Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to know all of them (contributed by @tanchekwei)
 - Multiple chats (contributed by @tanchekwei)
 - Proxy setting (contributed by @msaong)
 - Prompt management (contributed by @tanchekwei)
@@ -117,13 +122,15 @@ brew install --cask chatall
 
 ### On Linux
 
-Download the .AppImage file, make it executable, and enjoy the click-to-run experience.
+Debian-based Distributions: Download the .deb file, double click it and install the software.
+Arch-based Distributions: You can clone ChatALL from the AUR [here](https://aur.archlinux.org/packages/chatall-bin). You can install it manually or using an AUR helper like yay or paru.
+Other Distributions: Download the .AppImage file, make it executable, and enjoy the click-to-run experience. You can also use [AppimageLauncher](https://github.com/TheAssassin/AppImageLauncher).
 
 ## Troubleshooting
 
 If you encounter any problems while using ChatALL, you can try the following methods to resolve them:
 
-1. **Refresh** - press `Ctrl + R` or `Cmd + R`.
+1. **Refresh** - press <kbd>Ctrl</kbd> + <kbd>R</kbd> or <kbd>⌘</kbd> + <kbd>R</kbd>.
 2. **Restart** - exit ChatALL and run it again.
 3. **Re-login** - click the settings button in the upper right corner, then click the corresponding login/logout link to relogin the website.
 4. **Create a new chat** - click the `New Chat` button and send prompt again.
@@ -176,7 +183,7 @@ npm run electron:build -- -wml --x64 --arm64
 ### Others
 
 - GPT-4 contributed much of the code
-- ChatGPT, Bing Chat and Google provide many solutions (ranked in order)
+- ChatGPT, Copilot and Google provide many solutions (ranked in order)
 - Inspired by [ChatHub](https://github.com/chathub-dev/chathub). Respect!
 
 ## Sponsor

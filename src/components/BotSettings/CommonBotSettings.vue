@@ -3,11 +3,11 @@
     <template v-for="setting in settings" :key="setting.name">
       <v-list-item-title v-if="setting.title">
         <!-- falcon.temperature -->
-        {{ setting.title }}</v-list-item-title
+        {{ $t(setting.title) }}</v-list-item-title
       >
       <v-list-item-subtitle v-if="setting.description">
         <!-- falcon.temperaturePrompt -->
-        {{ setting.description }}</v-list-item-subtitle
+        {{ $t(setting.description) }}</v-list-item-subtitle
       >
 
       <v-text-field
@@ -24,7 +24,7 @@
         "
       ></v-text-field>
       <v-select
-        v-if="setting.type === Type.Select"
+        v-else-if="setting.type === Type.Select"
         v-model="settingState[setting.name]"
         outlined
         dense
@@ -44,7 +44,7 @@
         :min="setting.min"
         :max="setting.max"
         :step="setting.step"
-        :ticks="setting.ticks"
+        :ticks="translate(setting.ticks)"
         :show-ticks="
           /* 'show-ticks' cause lag issue when the possible value to slide is large */
           setting.ticks ? 'always' : false
@@ -77,12 +77,39 @@
           ></v-text-field>
         </template>
       </v-slider>
+      <v-combobox
+        v-else-if="setting.type === Type.Combobox"
+        v-model="settingState[setting.name]"
+        outlined
+        dense
+        :label="setting.label"
+        :placeholder="setting.placeholder"
+        :hide-details="setting.hideDetails"
+        :items="setting.items"
+        @update:model-value="
+          store.commit(mutationType, { [setting.name]: $event })
+        "
+      ></v-combobox>
+      <v-checkbox
+        v-else-if="setting.type === Type.Checkbox"
+        v-model="settingState[setting.name]"
+        outlined
+        dense
+        color="primary"
+        :label="setting.label"
+        :placeholder="setting.placeholder"
+        :hide-details="setting.hideDetails"
+        @update:model-value="
+          store.commit(mutationType, { [setting.name]: $event })
+        "
+      ></v-checkbox>
     </template>
   </v-list-item>
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import i18n from "@/i18n";
+import { computed, onMounted, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { Type } from "./settings.const";
 const store = useStore();
@@ -101,7 +128,21 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  watcher: {
+    type: Function,
+    default: undefined,
+  },
 });
+
+if (props.watcher) {
+  watch(
+    () => settingState.value,
+    (newValue) => {
+      console.log(`${props.brandId}: ${JSON.stringify(newValue)}`);
+      props.watcher(newValue);
+    },
+  );
+}
 
 onMounted(() => {
   for (const setting of props.settings) {
@@ -115,6 +156,17 @@ onMounted(() => {
     inputElement.step = setting.step;
   }
 });
+
+function translate(settings) {
+  if (settings) {
+    let rets = {};
+    Object.keys(settings).forEach((key) => {
+      rets[key] = i18n.global.t(settings[key]);
+    });
+    return rets;
+  }
+  return settings;
+}
 
 function validateSliderInput(setting, value) {
   // validate input via keyboard within setting min and max

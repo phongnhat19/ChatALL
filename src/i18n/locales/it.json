@@ -9,7 +9,11 @@
     "loginOrOut": "Accedi/Esci",
     "loginOrOutPrompt": "Clicca sul link sottostante per accedere o uscire nella nuova finestra, quindi chiudila",
     "notice": "Avviso",
-    "secretPrompt": "Il tuo token segreto rimarrà sul tuo dispositivo e non sarà condiviso con nessun'altra persona"
+    "secretPrompt": "Il tuo token segreto rimarrà sul tuo dispositivo e non sarà condiviso con nessun'altra persona",
+    "showMenuBar": "Mostra barra dei menu"
+  },
+  "common": {
+    "apiKey": "Chiave API"
   },
   "header": {
     "clearMessages": "Cancellare tutti i messaggi?",
@@ -45,13 +49,22 @@
     "pastRoundsPrompt": "Più chat storiche vengono mantenute, migliore è l'effetto del dialogo multi-round, ma richiede anche più risorse"
   },
   "bard": {
-    "name": "Bard"
+    "name": "Gemini"
   },
   "bingChat": {
-    "name": "Bing Chat",
+    "name": "Copilot",
     "h3imaginative": "Creativo",
     "galileo": "Equilibrato",
     "h3precise": "Preciso"
+  },
+  "cohereApi": {
+    "name": "Cohere API",
+    "command": "Command",
+    "command-light": "Command Light",
+    "command-r": "Command R",
+    "command-r-plus": "Command R+",
+    "temperature": "Temperatura",
+    "temperaturePrompt": "L'impostazione della casualità delle risposte del modello varia da 0 a 5. Un valore più basso assicura precisione e coerenza nelle uscite, ideale per compiti che richiedono informazioni precise, come la redazione di riassunti. Al contrario, un valore più alto promuove la creatività, ma può ridurre la coerenza in contesti specifici o in risposte brevi."
   },
   "chatGpt": {
     "name": "ChatGPT",
@@ -59,8 +72,17 @@
     "autoRefreshPrompt": "Se non ti viene chiesto di effettuare frequentemente l'accesso, NON abilitare questa funzione",
     "notice": "Solo i membri Plus a pagamento possono utilizzare GPT-4",
     "text-davinci-002-render-sha": "GPT-3.5",
-    "gpt-4": "GPT-4",
-    "gpt-4-browsing": "Navigazione Web"
+    "gpt-4": "GPT-4"
+  },
+  "geminiApi": {
+    "name": "Gemini API",
+    "gemini-pro": "Gemini-Pro",
+    "gemini-15-pro-latest": "Gemini 1.5 Pro",
+    "gemini-15-flash-latest": "Gemini 1.5 Flash",
+    "topK": "topK",
+    "topKPrompt": "Un topK di 1 significa che il token selezionato è il più probabile tra tutti i token nel vocabolario del modello (chiamato anche decodifica avida).",
+    "topP": "topP",
+    "topPPrompt": "I token vengono selezionati dal più al meno probabile fino a quando la somma delle loro probabilità eguaglia il valore topP"
   },
   "ernie": {
     "name": "ERNIE"
@@ -96,8 +118,7 @@
     "temperature": "Temperatura",
     "temperaturePrompt": "Più alta è la temperatura, più creativo è il testo, ma maggiore è la probabilità che sia incoerente",
     "temperature0": "Più deterministico",
-    "temperature2": "Più casuale",
-    "apiKey": "Chiave API"
+    "temperature2": "Più casuale"
   },
   "spark": {
     "name": "iFlytek Spark"
@@ -107,5 +128,13 @@
   },
   "dev": {
     "name": "Bot Dev"
+  },
+  "groqApi": {
+    "name": "Groq API",
+    "llama2-70b-4096": "LLaMA2 70b",
+    "llama3-8b-8192": "Llama 3 8b",
+    "llama3-70b-8192": "Llama 3 70b",
+    "mixtral-8x7b-32768": "Mixtral 8x7b",
+    "gemma-7b-it": "Gemma 7b"
   }
 }

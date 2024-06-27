@@ -14,7 +14,11 @@
     "system": "시스템",
     "light": "밝은",
     "dark": "어두운",
-    "bots": "AI 봇"
+    "bots": "AI 봇",
+    "showMenuBar": "메뉴 바 표시"
+  },
+  "common": {
+    "apiKey": "API 키"
   },
   "header": {
     "clearMessages": "모든 메시지를 지우시겠습니까?",
@@ -81,7 +85,9 @@
     "description": "설명",
     "botNameDesc": "선택한 응답의 봇 이름",
     "botResponseDesc": "선택된 응답",
-    "loading": "로드 중..."
+    "loading": "로드 중...",
+    "updateDebounceInterval": "메시지 업데이트 간격 (밀리초)",
+    "updateDebounceIntervalDesc": "이 값은 AI봇이 응답할 때 메시지 업데이트 속도를 조절합니다. 값이 높으면 메시지 처리가 지연되고 한 번에 업데이트되는 것이 더 효율적입니다. 값이 낮으면 메시지가 더 빨리 업데이트되지만 성능 문제가 발생할 수 있습니다."
   },
   "bot": {
     "creatingConversation": "대화를 만드는 중...",
@@ -108,18 +114,29 @@
     "azureApiInstanceNamePrompt": "https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI에서 인스턴스 이름 보기",
     "azureOpenAIApiDeploymentName": "Azure OpenAI API 배포 이름",
     "azureOpenAIApiDeploymentNamePrompt": "https://oai.azure.com/ 에서 관리 -> 배포에서 배포 이름을 확인합니다",
-    "azureOpenAIApiVersion": "버전",
+    "azureOpenAIApiVersion": "API 버전",
     "azureOpenAIApiVersionPrompt": "https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference#completions에서 지원되는 버전 다운로드"
   },
   "bard": {
-    "name": "Bard"
+    "name": "Gemini",
+    "gemini-pro": "Gemini",
+    "gemini-ultra": "Gemini 고급"
   },
   "bingChat": {
-    "name": "Bing Chat",
+    "name": "Copilot",
     "solveCaptcha": "계속하려면 <a { attributes }>CAPTCHA를 해결</a>해야 합니다.",
     "h3imaginative": "창의적인",
     "galileo": "균형 있는",
     "h3precise": "정밀한"
+  },
+  "cohereApi": {
+    "name": "Cohere API",
+    "command": "Command",
+    "command-light": "Command Light",
+    "command-r": "Command R",
+    "command-r-plus": "Command R+",
+    "temperature": "온도",
+    "temperaturePrompt": "모델 출력의 무작위성 설정은 0에서 5까지입니다. 낮은 설정값은 요약 작성과 같이 정확한 정보가 필요한 작업에 적합하며, 출력의 정확성과 일관성을 보장합니다. 반면, 높은 설정값은 창의성을 촉진하지만 특정 상황이나 간단한 응답에서는 일관성이 떨어질 수 있습니다."
   },
   "characterAI": {
     "name": "Character.AI"
@@ -131,11 +148,20 @@
     "notice": "유료 플러스 회원만 GPT-4를 사용할 수 있습니다",
     "text-davinci-002-render-sha": "GPT-3.5",
     "gpt-4": "GPT-4",
-    "gpt-4-browsing": "웹 브라우징",
     "gpt-4-mobile": "GPT-4 모바일 V2"
   },
+  "geminiApi": {
+    "name": "Gemini API",
+    "gemini-pro": "Gemini-Pro",
+    "gemini-15-pro-latest": "Gemini 1.5 Pro",
+    "gemini-15-flash-latest": "Gemini 1.5 Flash",
+    "topK": "topK",
+    "topKPrompt": "topK가 1이라는 것은 선택된 토큰이 모델의 어휘 중에서 가장 가능성이 높은 것을 의미합니다 (탐욕스러운 디코딩이라고도 함).",
+    "topP": "topP",
+    "topPPrompt": "토큰은 가장 가능성이 높은 것부터 가장 낮은 것까지 선택되며, 그 확률의 합이 topP 값과 같아질 때까지 선택됩니다"
+  },
   "claudeAi": {
-    "name": "Claude 2"
+    "name": "Claude"
   },
   "ernie": {
     "name": "ERNIE"
@@ -184,12 +210,12 @@
     "gpt-35-turbo": "gpt-3.5-터보",
     "gpt-35-turbo-16k": "gpt-3.5-터보-16k",
     "gpt-4": "gpt-4",
-    "gpt-4-1106-preview": "gpt-4-1106-미리보기",
+    "gpt-4-turbo": "gpt-4-turbo",
+    "gpt-4o": "gpt-4o",
     "temperature": "온도",
     "temperaturePrompt": "온도가 높을수록 텍스트는 창의적이지만 일관성이 없을 가능성이 높습니다",
     "temperature0": "더 결정론적인",
-    "temperature2": "더 무작위적인",
-    "apiKey": "API 키"
+    "temperature2": "더 무작위적인"
   },
   "poe": {
     "name": "Poe",
@@ -199,7 +225,10 @@
     "beaver": "GPT-4",
     "capybara": "Assistant",
     "chinchilla": "ChatGPT 3.5",
-    "vizcacha": "GPT-4-32k"
+    "vizcacha": "GPT-4-32k",
+    "code_llama_34b_instruct": "Code-Llama-34b",
+    "acouchy": "Google-PaLM-2",
+    "llama_2_70b_chat": "Llama-2-70b"
   },
   "qianWen": {
     "name": "QianWen"
@@ -226,10 +255,6 @@
     "name": "Pi",
     "waitPiIntro": "아래 챗봇 사이트 링크를 클릭하여 Pi 소개가 끝날 때까지 기다렸다가 창을 닫아주세요."
   },
-  "openAssistant": {
-    "name": "Open Assistant",
-    "queue": "대기열에 {queue_size}개의 요청이 있습니다. 현재 {queue_position} 위입니다"
-  },
   "falcon": {
     "name": "Falcon",
     "falcon-180b": "180b",
@@ -247,6 +272,14 @@
   },
   "dev": {
     "name": "Dev Bot"
+  },
+  "groqApi": {
+    "name": "Groq API",
+    "llama2-70b-4096": "LLaMA2 70b",
+    "llama3-8b-8192": "Llama 3 8b",
+    "llama3-70b-8192": "Llama 3 70b",
+    "mixtral-8x7b-32768": "Mixtral 8x7b",
+    "gemma-7b-it": "Gemma 7b"
   },
   "updates": {
     "updateAvailable": "업데이트 가능!",

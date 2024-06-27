@@ -4,6 +4,8 @@
 
 [Deutsch](README_DE-DE.md) | [English](README.md) | [Español](README_ES-ES.md) | [Français](README_FR-FR.md) | [Italian](README_IT-IT.md) | 日本語 | [한국어](README_KO-KR.md) | [Русский](README_RU-RU.md) | [Tiếng Việt](README_VI-VN.md) | [简体中文](README_ZH-CN.md)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sunner/ChatALL)
+
 </div>
 
 ## 画像
@@ -23,27 +25,39 @@ ChatALLのユーザーはこんな感じ：
 - 😎**LLMアプリケーションの開発者**, プロンプトを素早くデバッグし、最もパフォーマンスの高い基礎モデルを見つけたい人。
 
 ### 対応するAI
-
-| 対応AI                                                       | webアクセス | API        | 確認事項                                  |
-| ------------------------------------------------------------ | ----------- | ---------- | ----------------------------------------- |
-| [ChatGPT](https://chat.openai.com)                           | はい　　　  | あり　　　 | ブラウジングを含む                        |
-| [Bing Chat](https://www.bing.com/new)                        | はい　　　  | なし　　　 | ログイン不要 [ログインするとターン数上昇] |
-| [Baidu ERNIE](https://yiyan.baidu.com/)                      | いいえ　　  | あり　　　 |                                           |
-| [Bard](https://bard.google.com/)                             | はい　　　  | 近日登場　 |                                           |
-| [Poe](https://poe.com/)                                      | はい　　　  | 近日登場　 |                                           |
-| [MOSS](https://moss.fastnlp.top/)                            | はい　　　  | なし　　　 |                                           |
-| [Tongyi Qianwen](http://tongyi.aliyun.com/)                  | はい　　　  | 近日登場　 |                                           |
-| [Dedao Learning Assistant](https://ai.dedao.cn/)             | 近日登場　  | なし　　　 |                                           |
-| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                    | はい　　　  | 近日登場　 |                                           |
-| [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)   | はい　　　  | なし　　　 | ログイン不要                              |
-| [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)          | はい　　　  | なし　　　 | ログイン不要                              |
-| [ChatGLM](https://chatglm.cn/blog)                           | はい　　　  | なし　　　 | ログイン不要                              |
-| [Claude](https://www.anthropic.com/index/introducing-claude) | はい　　　  | なし　　　 | ログイン不要                              |
-| [Gradio](https://gradio.app/)                                | はい　　　  | なし　　　 | Hugging Face space/自己配布モデル用       |
-| [HuggingChat](https://huggingface.co/chat/)                  | はい　　　  | なし　　　 |                                           |
-| [QianWen](https://qianwen.aliyun.com/)                       | はい　　　  | 近日登場　 |                                           |
-| [You](https://you.com/)                                      | はい　　　  | なし　　　 |                                           |
-| [Pi](https://pi.ai)                                          | はい　　　  | なし　　　 |                                           |
+| 対応AI                                                                        | webアクセス | API        | 確認事項                                                 |
+| ----------------------------------------------------------------------------- | ----------- | ---------- | -------------------------------------------------------- |
+| [360 AI Brain](https://ai.360.cn/)                                            | はい        | なし       |                                                          |
+| [Baidu ERNIE](https://yiyan.baidu.com/)                                       | いいえ      | あり       |                                                          |
+| [Character.AI](https://character.ai/)                                         | はい        | なし       |                                                          |
+| [ChatGLM2 6B & 130B](https://chatglm.cn/)                                     | はい        | なし       | ログイン不要                                             |
+| [ChatGPT](https://chat.openai.com)                                            | はい        | あり       | ブラウジングを含む、Azure OpenAI service                 |
+| [Claude](https://www.anthropic.com/claude)                                    | はい        | あり       |                                                          |
+| [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/)| はい        | なし       |                                                          |
+| [Cohere Command R モデル](https://cohere.com/command)                          | いいえ      | はい       |                                                          |
+| [Copilot](https://copilot.microsoft.com/)                                     | はい        | なし       |                                                          |
+| [Dedao Learning Assistant](https://ai.dedao.cn/)                              | 近日登場    | なし       |                                                          |
+| [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B-chat)                 | はい        | なし       |                                                          |
+| [Gemini](https://gemini.google.com/)                                          | はい        | あり       |                                                          |
+| [Gemma 2B & 7B](https://blog.google/technology/developers/gemma-open-models/) | はい        | なし       |                                                          |
+| [Gradio](https://gradio.app/)                                                 | はい        | なし       | Hugging Face space/自己配布モデル用                      |
+| [Groq Cloud](https://console.groq.com/docs/models)                            | いいえ      | あり       |                                                          |
+| [HuggingChat](https://huggingface.co/chat/)                                   | はい        | なし       |                                                          |
+| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                                     | はい        | 近日登場   |                                                          |
+| [Kimi](https://kimi.moonshot.cn/)                                             | はい        | なし       |                                                          |
+| [Llama 2 13B & 70B](https://ai.meta.com/llama/)                               | はい        | なし       |                                                          |
+| [MOSS](https://moss.fastnlp.top/)                                             | はい        | なし       |                                                          |
+| [Perplexity](https://www.perplexity.ai/)                                      | はい        | なし       |                                                          |
+| [Phind](https://www.phind.com/)                                               | はい        | なし       |                                                          |
+| [Pi](https://pi.ai)                                                           | はい        | なし       |                                                          |
+| [Poe](https://poe.com/)                                                       | はい        | 近日登場   |                                                          |
+| [SkyWork](https://neice.tiangong.cn/)                                         | はい        | 近日登場   |                                                          |
+| [Tongyi Qianwen](http://tongyi.aliyun.com/)                                   | はい        | 近日登場   |                                                          |
+| [Vicuna 13B & 33B](https://lmsys.org/blog/2023-03-30-vicuna/)                 | はい        | なし       | ログイン不要                                             |
+| [WizardLM 70B](https://github.com/nlpxucan/WizardLM)                          | はい        | なし       |                                                          |
+| [YouChat](https://you.com/)                                                   | はい        | なし       |                                                          |
+| [You](https://you.com/)                                                       | はい        | なし       |                                                          |
+| [Zephyr](https://huggingface.co/spaces/HuggingFaceH4/zephyr-chat)             | はい        | なし       |                                                          |
 
 まだまだ続きます。[Issuesタブ](https://github.com/sunner/ChatALL/labels/more%20LLMs)でお気に入りのAIを提案してください。
 
@@ -56,7 +70,7 @@ ChatALLのユーザーはこんな感じ：
 - 回答を1列～3列の表示切替
 - 最新バージョンへの自動通知と自動アップデート
 - ダークモード対応（提供者 @tanchekwei）
-- `Ctrl + /` または `Cmd + /` で全てのショートカットキーが表示 (提供者 @tanchekwei)
+- <kbd>Ctrl</kbd> + <kbd>/</kbd> または `Cmd + /` で全てのショートカットキーが表示 (提供者 @tanchekwei)
 - マルチチャット対応 (提供者 @tanchekwei)
 - プロキシ設定をサポート (提供者 @msaong)
 - 対応言語：日本語、英語、中国語、スペイン語、ドイツ語、フランス語、ロシア語、ベトナム語、韓国語
@@ -104,7 +118,7 @@ brew install --cask chatall
 
 ChatALLをご利用中に問題が発生した場合は、以下の解決策をお試しください。：
 
-1. **再読み込み** - `Ctrl + R` または `Cmd + R` を押す。
+1. **再読み込み** - <kbd>Ctrl</kbd> + <kbd>R</kbd> または <kbd>⌘</kbd> + <kbd>R</kbd> を押す。
 2. **アプリを再起動** - ChatALLを終了し、再度実行する。
 3. **再ログイン** - 右上の設定ボタンをクリックし、各AIの `ログイン/ログアウト`をクリックして、サイトに再ログインします。
 4. **すべてのメッセージを削除する** - 右上のほうきボタンをクリックし"はい"をクリックする。
@@ -157,7 +171,7 @@ npm run electron:build -- -wml --x64 --arm64
 ### その他
 
 - GPT-4はコードを提供した
-- ChatGPT、Bing Chat、Googleは多くの解決策を提供しています（ランキング順）
+- ChatGPT、Copilot、Googleは多くの解決策を提供しています（ランキング順）
 - [ChatHub](https://github.com/chathub-dev/chathub)のリスペクトです！
 
 ## 支援者

@@ -4,6 +4,8 @@
 
 [Deutsch](README_DE-DE.md) | [English](README.md) | [Español](README_ES-ES.md) | [Français](README_FR-FR.md) | [Italian](README_IT-IT.md) | [日本語](README_JA-JP.md) | [한국어](README_KO-KR.md) | Русский | [Tiếng Việt](README_VI-VN.md) | [简体中文](README_ZH-CN.md)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sunner/ChatALL)
+
 </div>
 
 ## Скриншоты
@@ -24,34 +26,39 @@
 
 ### Поддерживаемые боты
 
-| ИИ-боты                                                                        | Доступ к интернету | API         | Подпись                                           |
-| ------------------------------------------------------------------------------ | ------------------ | ----------- | ------------------------------------------------- |
-| [ChatGPT](https://chat.openai.com)                                             | Да                 | Да          | Просмотр веб-страниц, включая службу Azure OpenAI |
-| [Bing Chat](https://www.bing.com/new)                                          | Да                 | Нет API     |                                                   |
-| [Baidu ERNIE](https://yiyan.baidu.com/)                                        | Нет                | Да          |                                                   |
-| [Bard](https://bard.google.com/)                                               | Да                 | Скоро будет |                                                   |
-| [Poe](https://poe.com/)                                                        | Да                 | Скоро будет |                                                   |
-| [MOSS](https://moss.fastnlp.top/)                                              | Да                 | Нет API     |                                                   |
-| [Tongyi Qianwen](http://tongyi.aliyun.com/)                                    | Да                 | Скоро будет |                                                   |
-| [Dedao Learning Assistant](https://ai.dedao.cn/)                               | Скоро будет        | Нет API     |                                                   |
-| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                                      | Да                 | Скоро будет |                                                   |
-| [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)                     | Да                 | Нет API     | Вход в ученую запись не требуется                 |
-| [Vicuna 7B, 13B & 33B](https://lmsys.org/blog/2023-03-30-vicuna/)              | Да                 | Нет API     | Вход в ученую запись не требуется                 |
-| [ChatGLM2 6B & 130B](https://chatglm.cn/)                                      | Да                 | Нет API     | Вход в ученую запись не требуется                 |
-| [Claude 2 & Instant](https://www.anthropic.com/index/claude-2)                 | Да                 | Нет API     |                                                   |
-| [Gradio](https://gradio.app/)                                                  | Да                 | Нет API     | For Hugging Face space/self-deployed models       |
-| [HuggingChat](https://huggingface.co/chat/)                                    | Да                 | Нет API     |                                                   |
-| [SkyWork](https://neice.tiangong.cn/)                                          | Да                 | Скоро будет |                                                   |
-| [You](https://you.com/)                                                        | Да                 | Нет API     |                                                   |
-| [Pi](https://pi.ai)                                                            | Да                 | Нет API     |                                                   |
-| [360 AI Brain](https://ai.360.cn/)                                             | Да                 | Нет API     |                                                   |
-| [YouChat](https://you.com/)                                                    | Да                 | Нет API     |                                                   |
-| [Open Assistant](https://open-assistant.io/)                                   | Да                 | Нет API     |                                                   |
-| [Character.AI](https://character.ai/)                                          | Да                 | Нет API     |                                                   |
-| [Llama 2 7B, 13B & 70B](https://ai.meta.com/llama/)                            | Да                 | Нет API     |                                                   |
-| [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) | Да                 | Нет API     |                                                   |
-| [WizardLM 13B & 70B](https://github.com/nlpxucan/WizardLM)                     | Да                 | Нет API     |                                                   |
-| [Falcon 180B](https://tiiuae-falcon-180b-demo.hf.space/)                       | Да                 | Нет API     |                                                   |
+| ИИ-боты                                                                        | Доступ к интернету | API         | Подпись                                                 |
+| ------------------------------------------------------------------------------ | ------------------ | ----------- | ------------------------------------------------------- |
+| [360 AI Brain](https://ai.360.cn/)                                             | Да                 | Нет         |                                                         |
+| [Baidu ERNIE](https://yiyan.baidu.com/)                                        | Нет                | Да          |                                                         |
+| [Character.AI](https://character.ai/)                                          | Да                 | Нет         |                                                         |
+| [ChatGLM2 6B & 130B](https://chatglm.cn/)                                      | Да                 | Нет API     | Вход в ученую запись не требуется                       |
+| [ChatGPT](https://chat.openai.com)                                             | Да                 | Да          | Просмотр веб-страниц, включая службу Azure OpenAI       |
+| [Claude](https://www.anthropic.com/claude)                                     | Да                 | Да          |                                                         |
+| [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) | Да                 | Нет         |                                                         |
+| [Модели Cohere Command R](https://cohere.com/command)                          | Нет                | Да          |                                                         |
+| [Copilot](https://copilot.microsoft.com/)                                      | Да                 | Нет API     |                                                         |
+| [Dedao Learning Assistant](https://ai.dedao.cn/)                               | Скоро будет        | Нет API     |                                                         |
+| [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B-chat)                  | Да                 | Нет         |                                                         |
+| [Gemini](https://gemini.google.com/)                                           | Да                 | Да          |                                                         |
+| [Gemma 2B & 7B](https://blog.google/technology/developers/gemma-open-models/)  | Да                 | Нет         |                                                         |
+| [Gradio](https://gradio.app/)                                                  | Да                 | Нет API     | Для моделей, размещенных на Hugging Face или автономно  |
+| [Groq Cloud](https://console.groq.com/docs/models)                             | Нет                | Да          |                                                         |
+| [HuggingChat](https://huggingface.co/chat/)                                    | Да                 | Нет API     |                                                         |
+| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                                      | Да                 | Скоро будет |                                                         |
+| [Kimi](https://kimi.moonshot.cn/)                                              | Да                 | Нет         |                                                         |
+| [Llama 2 13B & 70B](https://ai.meta.com/llama/)                                | Да                 | Нет         |                                                         |
+| [MOSS](https://moss.fastnlp.top/)                                              | Да                 | Нет API     |                                                         |
+| [Perplexity](https://www.perplexity.ai/)                                       | Да                 | Нет         |                                                         |
+| [Phind](https://www.phind.com/)                                                | Да                 | Нет         |                                                         |
+| [Pi](https://pi.ai)                                                            | Да                 | Нет         |                                                         |
+| [Poe](https://poe.com/)                                                        | Да                 | Скоро будет |                                                         |
+| [SkyWork](https://neice.tiangong.cn/)                                          | Да                 | Скоро будет |                                                         |
+| [Tongyi Qianwen](http://tongyi.aliyun.com/)                                    | Да                 | Скоро будет |                                                         |
+| [Vicuna 13B & 33B](https://lmsys.org/blog/2023-03-30-vicuna/)                  | Да                 | Нет API     | Вход в ученую запись не требуется                       |
+| [WizardLM 70B](https://github.com/nlpxucan/WizardLM)                           | Да                 | Нет         |                                                         |
+| [YouChat](https://you.com/)                                                    | Да                 | Нет         |                                                         |
+| [You](https://you.com/)                                                        | Да                 | Нет         |                                                         |
+| [Zephyr](https://huggingface.co/spaces/HuggingFaceH4/zephyr-chat)              | Да                 | Нет         |                                                         |
 
 Скоро будет еще больше. Проголосуйте за своих любимых ботов в [этих issues](https://github.com/sunner/ChatALL/labels/more%20LLMs).
 
@@ -113,7 +120,7 @@ brew install --cask chatall
 
 Если вы столкнетесь с какими-либо проблемами при использовании ChatALL, вы можете попробовать следующие методы их устранения:
 
-1. **Обновить** - нажмите `Ctrl + R` или `Cmd + R`.
+1. **Обновить** - нажмите <kbd>Ctrl</kbd> + <kbd>R</kbd> или <kbd>⌘</kbd> + <kbd>R</kbd>.
 2. **Перезапустить** - выйдите из ChatALL и запустите его снова.
 3. **Повторный вход в систему** - нажмите кнопку настройки в правом верхнем углу, затем перейдите по соответствующей ссылке входа/выхода из системы, чтобы повторно войти на вебсайт.
 4. **Создайте новый чат** - нажмите кнопку "Создать чат" и отправьте запрос еще раз.
@@ -166,7 +173,7 @@ npm run electron:build -- -wml --x64 --arm64
 ### Другие
 
 - GPT-4 внес большой вклад в разработку кода
-- ChatGPT, Bing Chat и Google предоставляют множество решений (ранжированных по порядку)
+- ChatGPT, Copilot и Google предоставляют множество решений (ранжированных по порядку)
 - Вдохновленно с помощью [ChatHub](https://github.com/chathub-dev/chathub). Респект!
 
 ## Поддержать

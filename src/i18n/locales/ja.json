@@ -14,7 +14,11 @@
     "system": "システムと同期",
     "light": "ライト",
     "dark": "ダーク",
-    "bots": "AIボット"
+    "bots": "AIボット",
+    "showMenuBar": "メニューバーを表示"
+  },
+  "common": {
+    "apiKey": "APIキー"
   },
   "header": {
     "clearMessages": "このチャットの会話を全て削除しますか？",
@@ -65,18 +69,27 @@
     "azureApiInstanceNamePrompt": "https://portal.azure.com/ の Cognitive Services でインスタンス名を表示する。",
     "azureOpenAIApiDeploymentName": "デプロイメント名",
     "azureOpenAIApiDeploymentNamePrompt": "https://oai.azure.com/ の[管理] -> [デプロイメント]でデプロイメント名を表示します。",
-    "azureOpenAIApiVersion": "バージョン",
+    "azureOpenAIApiVersion": "API バージョン",
     "azureOpenAIApiVersionPrompt": "サポートされているバージョンを https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference#completions から入手する。"
   },
   "bard": {
-    "name": "Bard"
+    "name": "Gemini"
   },
   "bingChat": {
-    "name": "Bing Chat",
+    "name": "Copilot",
     "solveCaptcha": "続行するには <a { attributes }>CAPTCHA認証/a>をしてください。",
     "h3imaginative": "創造的に",
     "galileo": "バランスよく",
     "h3precise": "厳密に"
+  },
+  "cohereApi": {
+    "name": "Cohere API",
+    "command": "Command",
+    "command-light": "Command Light",
+    "command-r": "Command R",
+    "command-r-plus": "Command R+",
+    "temperature": "温度",
+    "temperaturePrompt": "モデルの出力のランダム性の設定範囲は0から5です。低い設定値は、要約の作成など、正確な情報が必要なタスクに適しており、出力の精度と一貫性を保証します。一方、高い設定値は創造性を促進しますが、特定の状況や短い回答では一貫性が低下する可能性があります。"
   },
   "chatGpt": {
     "name": "ChatGPT",
@@ -85,8 +98,17 @@
     "notice": "ChatGPTプラス会員のみGPT-4をご利用いただけます。",
     "text-davinci-002-render-sha": "GPT-3.5",
     "gpt-4": "GPT-4",
-    "gpt-4-browsing": "webブラウジング",
     "gpt-4-mobile": "GPT-4 モバイル V2"
+  },
+  "geminiApi": {
+    "name": "Gemini API",
+    "gemini-pro": "Gemini-Pro",
+    "gemini-15-pro-latest": "Gemini 1.5 Pro",
+    "gemini-15-flash-latest": "Gemini 1.5 Flash",
+    "topK": "topK",
+    "topKPrompt": "topKの1は、モデルの語彙の中で選択されたトークンが最も確からしいことを意味します（貪欲デコードとも呼ばれます）",
+    "topP": "topP",
+    "topPPrompt": "トークンは最も確からしいものから最も確からしくないものまで選ばれ、それらの確率の合計がtopPの値に等しくなるまで選択されます"
   },
   "ernie": {
     "name": "ERNIE"
@@ -120,12 +142,12 @@
     "gpt-35-turbo": "gpt-3.5-turbo",
     "gpt-35-turbo-16k": "gpt-3.5-turbo-16k",
     "gpt-4": "gpt-4",
-    "gpt-4-1106-preview": "gpt-4-1106-preview",
+    "gpt-4-turbo": "gpt-4-turbo",
+    "gpt-4o": "gpt-4o",
     "temperature": "温度",
     "temperaturePrompt": "温度が高いほど、テキストは創造的ですが、一貫性がない可能性が高いです。",
     "temperature0": "より決定論的な",
-    "temperature2": "もっとランダム",
-    "apiKey": "APIキー"
+    "temperature2": "もっとランダム"
   },
   "poe": {
     "name": "Poe",
@@ -135,7 +157,10 @@
     "beaver": "GPT-4",
     "capybara": "Assistant",
     "chinchilla": "ChatGPT 3.5",
-    "vizcacha": "GPT-4-32k"
+    "vizcacha": "GPT-4-32k",
+    "code_llama_34b_instruct": "Code-Llama-34b",
+    "acouchy": "Google-PaLM-2",
+    "llama_2_70b_chat": "Llama-2-70b"
   },
   "qianWen": {
     "name": "QianWen"
@@ -163,6 +188,14 @@
   },
   "dev": {
     "name": "Dev Bot"
+  },
+  "groqApi": {
+    "name": "Groq API",
+    "llama2-70b-4096": "LLaMA2 70b",
+    "llama3-8b-8192": "Llama 3 8b",
+    "llama3-70b-8192": "Llama 3 70b",
+    "mixtral-8x7b-32768": "Mixtral 8x7b",
+    "gemma-7b-it": "Gemma 7b"
   },
   "updates": {
     "updateAvailable": "アップデート利用可能!",

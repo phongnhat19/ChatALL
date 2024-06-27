@@ -5,11 +5,28 @@ import { createProtocol } from "vue-cli-plugin-electron-builder/lib";
 import installExtension, { VUEJS3_DEVTOOLS } from "electron-devtools-installer";
 import fs from "fs";
 import path from "path";
+import { setMenuItems } from "./menu";
 import updateApp from "./update";
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 const DEFAULT_USER_AGENT = ""; // Empty string to use the Electron default
+/** @type {BrowserWindow} */
 let mainWindow = null;
+
+// start - makes  application a Single Instance Application
+const singleInstanceLock = app.requestSingleInstanceLock();
+if (!singleInstanceLock) {
+  app.quit();
+} else {
+  app.on("second-instance", () => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+    }
+  });
+}
+// end - makes application a Single Instance Application
 
 // Disable QUIC
 // Prevent Cloudflare from detecting the real IP when using a proxy that bypasses UDP traffic
@@ -210,16 +227,28 @@ async function createWindow() {
       }
 
       // To depress the 403 error
-      if (url.startsWith("https://bard.google.com/faq")) {
+      if (url.startsWith("https://gemini.google.com/app")) {
         requestHeaders["sec-fetch-mode"] = "navigate";
       } else if (url.includes("BardChatUi")) {
-        requestHeaders["origin"] = "https://bard.google.com";
+        requestHeaders["origin"] = "https://gemini.google.com";
         requestHeaders["sec-fetch-site"] = "same-origin";
       }
 
-      // To make Bing Chat work
+      // To make Copilot work
       if (url.startsWith("wss://sydney.bing.com/")) {
-        requestHeaders["Origin"] = "https://www.bing.com";
+        requestHeaders["Origin"] = "https://copilot.microsoft.com";
+      }
+
+      if (
+        url.startsWith("https://character.ai/_next/data/") &&
+        /^https:\/\/character\.ai\/_next\/data\/.+\/index\.json/.test(url)
+      ) {
+        const parts = url.split("/");
+        if (parts.length >= 6) {
+          mainWindow.webContents.send("commit", "setCharacterAI", {
+            version: parts[5],
+          });
+        }
       }
 
       callback({ requestHeaders });
@@ -239,7 +268,7 @@ async function createWindow() {
   }
 }
 
-function createNewWindow(url, userAgent = "") {
+function createNewWindow({ url, userAgent = "", loginScript }) {
   const newWin = new BrowserWindow({
     width: 800,
     height: 600,
@@ -258,7 +287,11 @@ function createNewWindow(url, userAgent = "") {
   if (process.platform !== "darwin") newWin.minimize();
   newWin.loadURL(url);
   newWin.show();
-
+  newWin.webContents.once("dom-ready", () => {
+    if (loginScript) {
+      newWin.webContents.executeJavaScript(loginScript);
+    }
+  });
   newWin.on("close", async (e) => {
     e.preventDefault(); // Prevent the window from closing
 
@@ -284,16 +317,13 @@ function createNewWindow(url, userAgent = "") {
         // Get QianWen bot's XSRF-TOKEN
         const token = await getCookie("XSRF-TOKEN");
         mainWindow.webContents.send("QIANWEN-XSRF-TOKEN", token);
-      } else if (url.startsWith("https://neice.tiangong.cn/")) {
+      } else if (url.startsWith("https://chat.tiangong.cn/")) {
         // Get the tokens of SkyWork
-        const inviteToken = await getLocalStorage("formNatureQueueWaitToken");
-        const token = await getLocalStorage("formNatureResearchToken");
+        const inviteToken = await getLocalStorage("aiChatQueueWaitToken");
+        const token = await getLocalStorage("aiChatResearchToken");
         mainWindow.webContents.send("SKYWORK-TOKENS", { inviteToken, token });
-      } else if (url.startsWith("https://character.ai/")) {
-        const token = await getLocalStorage("char_token");
-        mainWindow.webContents.send("CHARACTER-AI-TOKENS", token);
       } else if (url.startsWith("https://claude.ai/")) {
-        const org = await getLocalStorage("lastActiveOrg");
+        const org = await getCookie("lastActiveOrg");
         mainWindow.webContents.send("CLAUDE-2-ORG", org);
       } else if (url.startsWith("https://poe.com/")) {
         const formkey = await newWin.webContents.executeJavaScript(
@@ -303,6 +333,13 @@ function createNewWindow(url, userAgent = "") {
       } else if (url.startsWith("https://chatglm.cn/")) {
         const token = await getCookie("chatglm_token");
         mainWindow.webContents.send("CHATGLM-TOKENS", { token });
+      } else if (url.startsWith("https://kimi.moonshot.cn/")) {
+        const access_token = await getLocalStorage("access_token");
+        const refresh_token = await getLocalStorage("refresh_token");
+        mainWindow.webContents.send("KIMI-TOKENS", {
+          access_token,
+          refresh_token,
+        });
       }
     } catch (err) {
       console.error(err);
@@ -321,9 +358,12 @@ async function getCookies(filter) {
   return cookies;
 }
 
-ipcMain.handle("create-new-window", (event, url, userAgent) => {
-  createNewWindow(url, userAgent);
-});
+ipcMain.handle(
+  "create-new-window",
+  (event, { url, userAgent, loginScript }) => {
+    createNewWindow({ url, userAgent, loginScript });
+  },
+);
 
 ipcMain.handle("get-native-theme", () => {
   return Promise.resolve({
@@ -364,6 +404,10 @@ ipcMain.handle("save-proxy-and-restart", async () => {
   return "";
 });
 // Proxy Setting End
+
+ipcMain.handle("set-is-show-menu-bar", (_, isShowMenuBar) => {
+  mainWindow.setMenuBarVisibility(isShowMenuBar);
+});
 
 ipcMain.handle("get-cookies", async (event, filter) => {
   return await getCookies(filter);
@@ -406,6 +450,7 @@ app.on("ready", async () => {
   }
 
   createWindow();
+  setMenuItems();
   updateApp(mainWindow);
 });
 

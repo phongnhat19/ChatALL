@@ -1,5 +1,5 @@
 import axios from "axios";
-import Bot from "./Bot";
+import Bot from "../Bot";
 import AsyncLock from "async-lock";
 
 function parseResponse(resp) {
@@ -29,11 +29,121 @@ function parseResponse(resp) {
   return { text, ids };
 }
 
+function generateReq(model, prompt, contextIds) {
+  let modelNumber = model == "gemini-ultra" ? 2 : 1;
+  // The JSON is ugly and meaningless, but it works
+  let innerJSON = [
+    [prompt, 0, null, null, null, null, 0],
+    ["en"],
+    contextIds,
+    "",
+    "",
+    null,
+    [1],
+    0,
+    null,
+    null,
+    1,
+    0,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    modelNumber,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    [],
+  ];
+  return JSON.stringify([null, JSON.stringify(innerJSON)]);
+}
+
 export default class BardBot extends Bot {
   static _brandId = "bard";
   static _className = "BardBot"; // Class name of the bot
-  static _logoFilename = "bard-logo.svg"; // Place it in public/bots/
-  static _loginUrl = "https://bard.google.com/";
+  static _model = "gemini-pro"; // gemini-pro or gemini-ultra
+  static _logoFilename = "gemini-chat-logo.svg"; // Place it in public/bots/
+  static _loginUrl = "https://gemini.google.com/";
   // Remove Electron from the user agent to avoid blank login screen
   static _userAgent =
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) chatall/1.29.40 Chrome/114.0.5735.134 Safari/537.36";
@@ -61,15 +171,10 @@ export default class BardBot extends Bot {
 
       axios
         .post(
-          "https://bard.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
+          "https://gemini.google.com/_/BardChatUi/data/assistant.lamda.BardFrontendService/StreamGenerate",
           new URLSearchParams({
             at: requestParams.atValue,
-            "f.req": JSON.stringify([
-              null,
-              `[[${JSON.stringify(prompt)}],null,${JSON.stringify(
-                contextIds,
-              )}]`,
-            ]),
+            "f.req": generateReq(this.constructor._model, prompt, contextIds),
           }),
           {
             params: {
@@ -93,7 +198,7 @@ export default class BardBot extends Bot {
   }
 
   async createChatContext() {
-    const resp = await axios.get("https://bard.google.com/faq");
+    const resp = await axios.get("https://gemini.google.com/app");
     const atValue = resp.data.match(/"SNlM0e":"([^"]+)"/)?.[1];
     const blValue = resp.data.match(/"cfb2h":"([^"]+)"/)?.[1];
     if (!atValue || !blValue) {

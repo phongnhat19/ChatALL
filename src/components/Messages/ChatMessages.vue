@@ -29,10 +29,11 @@
 <script setup>
 import Messages from "@/store/messages";
 import { liveQuery } from "dexie";
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import { useStore } from "vuex";
 import ChatPrompt from "./ChatPrompt.vue";
 import ChatResponse from "./ChatResponse.vue";
+import { autoScrollToBottom, scrollToBottom } from "@/helpers/scroll-helper";
 
 const store = useStore();
 
@@ -46,7 +47,6 @@ const props = defineProps({
   },
 });
 
-const autoScroll = ref(true);
 const loading = ref(false);
 const gridTemplateColumns = computed(() => `repeat(${props.columns}, 1fr)`);
 const currentChatMessages = ref([]);
@@ -82,20 +82,8 @@ let createChatMessageLiveQuery = (index) => {
       groupedMessage.push.apply(groupedMessage, Object.values(responses));
     }
     currentChatMessages.value = groupedMessage;
+    nextTick(() => autoScrollToBottom());
   });
-};
-
-const scrollToBottom = ({ immediately = false }) => {
-  window.scrollTo({
-    top: document.documentElement.scrollHeight,
-    behavior: immediately ? "instant" : "smooth",
-  });
-};
-
-const autoScrollToBottom = () => {
-  if (autoScroll.value) {
-    scrollToBottom({ immediately: true });
-  }
 };
 
 const currentChatIndex = computed(() => store.state.currentChatIndex);
@@ -124,22 +112,10 @@ watch(
   { immediate: true },
 );
 
-watch(() => store.state.updateCounter, autoScrollToBottom);
-
-const onScroll = () => {
-  const scrollPosition = window.pageYOffset + window.innerHeight;
-  autoScroll.value =
-    scrollPosition >= document.documentElement.scrollHeight - 40;
-};
-
 onMounted(async () => {
   await Messages.table
     .filter((message) => message.done !== true)
     .modify({ done: true });
-  window.addEventListener("scroll", onScroll);
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", onScroll);
 });
 </script>
 

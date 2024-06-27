@@ -9,7 +9,11 @@
     "loginOrOut": "Вход/выход",
     "loginOrOutPrompt": "Нажмите на ссылку ниже, чтобы войти или выйти из аккаунта в новом окне, а затем закройте его",
     "notice": "Уведомление",
-    "secretPrompt": "Ваш секретный токен останется на вашем устройстве и не будет передан никому другому"
+    "secretPrompt": "Ваш секретный токен останется на вашем устройстве и не будет передан никому другому",
+    "showMenuBar": "Показать строку меню"
+  },
+  "common": {
+    "apiKey": "Ключ API"
   },
   "header": {
     "clearMessages": "Очистить все сообщения?",
@@ -38,13 +42,22 @@
     "waiting": "Ожидание завершения других запросов от{ botName } ..."
   },
   "bard": {
-    "name": "Bard"
+    "name": "Gemini"
   },
   "bingChat": {
-    "name": "Bing Chat",
+    "name": "Copilot",
     "h3imaginative": "Творческий",
     "galileo": "Сбалансированный",
     "h3precise": "Точный"
+  },
+  "cohereApi": {
+    "name": "Cohere API",
+    "command": "Command",
+    "command-light": "Command Light",
+    "command-r": "Command R",
+    "command-r-plus": "Command R+",
+    "temperature": "Температура",
+    "temperaturePrompt": "Настройка случайности ответов модели варьируется от 0 до 5. Более низкие значения обеспечивают точность и согласованность результатов, что идеально подходит для задач, требующих точной информации, например, при составлении резюме. Высокие значения способствуют креативности, но могут снизить связность в специфических контекстах или кратких ответах."
   },
   "chatGpt": {
     "name": "ChatGPT",
@@ -53,6 +66,16 @@
     "notice": "Только платные пользователи Plus могут использовать GPT-4",
     "text-davinci-002-render-sha": "GPT-3.5",
     "gpt-4": "GPT-4"
+  },
+  "geminiApi": {
+    "name": "Gemini API",
+    "gemini-pro": "Gemini-Pro",
+    "gemini-15-pro-latest": "Gemini 1.5 Pro",
+    "gemini-15-flash-latest": "Gemini 1.5 Flash",
+    "topK": "topK",
+    "topKPrompt": "topK, равный 1, означает, что выбранный токен является наиболее вероятным среди всех токенов в словаре модели (это также называется жадным декодированием).",
+    "topP": "topP",
+    "topPPrompt": "Токены выбираются от наиболее вероятного к наименее вероятному до тех пор, пока сумма их вероятностей не станет равной значению topP"
   },
   "ernie": {
     "name": "ERNIE"
@@ -88,8 +111,7 @@
     "temperature": "Температура",
     "temperaturePrompt": "Чем выше температура, тем креативнее текст, но тем больше вероятность того, что он будет бессвязным",
     "temperature0": "Более определенный",
-    "temperature2": "Более рандомный",
-    "apiKey": "Ключ API"
+    "temperature2": "Более рандомный"
   },
   "spark": {
     "name": "iFlytek Spark"
@@ -99,5 +121,13 @@
   },
   "dev": {
     "name": "Dev Bot"
+  },
+  "groqApi": {
+    "name": "Groq API",
+    "llama2-70b-4096": "LLaMA2 70b",
+    "llama3-8b-8192": "Llama 3 8b",
+    "llama3-70b-8192": "Llama 3 70b",
+    "mixtral-8x7b-32768": "Mixtral 8x7b",
+    "gemma-7b-it": "Gemma 7b"
   }
 }

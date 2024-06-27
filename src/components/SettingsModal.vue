@@ -59,6 +59,11 @@
                     @update:model-value="setCurrentMode($event)"
                   ></v-select>
                 </v-list-item>
+                <CommonBotSettings
+                  :settings="settings"
+                  brand-id="general"
+                  mutation-type="setGeneral"
+                ></CommonBotSettings>
               </div>
 
               <div v-if="tab == 'proxy'">
@@ -84,20 +89,24 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import { useStore } from "vuex";
 import { useI18n } from "vue-i18n";
 import { useTheme } from "vuetify";
+import { Type } from "@/components/BotSettings/settings.const";
 
 import ProxySettings from "@/components/ProxySetting.vue";
 import ChatSettings from "@/components/ChatSetting.vue";
+import CommonBotSettings from "@/components/BotSettings/CommonBotSettings.vue";
 
 import ChatGPTBotSettings from "@/components/BotSettings/ChatGPTBotSettings.vue";
 import OpenAIAPIBotSettings from "@/components/BotSettings/OpenAIAPIBotSettings.vue";
+import GeminiAPIBotSettings from "@/components/BotSettings/GeminiAPIBotSettings.vue";
 import AzureOpenAIAPIBotSettings from "./BotSettings/AzureOpenAIAPIBotSettings.vue";
 import BingChatBotSettings from "@/components/BotSettings/BingChatBotSettings.vue";
 import SparkBotSettings from "./BotSettings/SparkBotSettings.vue";
 import BardBotSettings from "@/components/BotSettings/BardBotSettings.vue";
+import MistralBotSettings from "@/components/BotSettings/MistralBotSettings.vue";
 import MOSSBotSettings from "@/components/BotSettings/MOSSBotSettings.vue";
 import WenxinQianfanBotSettings from "@/components/BotSettings/WenxinQianfanBotSettings.vue";
 import GradioAppBotSettings from "@/components/BotSettings/GradioAppBotSettings.vue";
@@ -108,15 +117,19 @@ import QianWenBotSettings from "@/components/BotSettings/QianWenBotSettings.vue"
 import PoeBotSettings from "@/components/BotSettings/PoeBotSettings.vue";
 import SkyWorkBotSettings from "@/components/BotSettings/SkyWorkBotSettings.vue";
 import YouChatBotSettings from "@/components/BotSettings/YouChatBotSettings.vue";
+import PerplexityBotSettings from "@/components/BotSettings/PerplexityBotSettings.vue";
 import PhindBotSettings from "@/components/BotSettings/PhindBotSettings.vue";
 import PiBotSettings from "@/components/BotSettings/PiBotSettings.vue";
 import Qihoo360AIBrainBotSettings from "./BotSettings/Qihoo360AIBrainBotSettings.vue";
-import OpenAssistantBotSettings from "./BotSettings/OpenAssistantBotSettings.vue";
 import CharacterAIBotSettings from "./BotSettings/CharacterAIBotSettings.vue";
 import ClaudeAIBotSettings from "./BotSettings/ClaudeAIBotSettings.vue";
 import ChatGLMBotSettings from "./BotSettings/ChatGLMBotSettings.vue";
+import CohereAPIBotSettings from "./BotSettings/CohereAPIBotSettings.vue";
+import KimiBotSettings from "./BotSettings/KimiBotSettings.vue";
 
 import { resolveTheme, applyTheme, Mode } from "../theme";
+import ClaudeAPIBotSettings from "./BotSettings/ClaudeAPIBotSettings.vue";
+import GroqAPIBotSettings from "./BotSettings/GroqAPIBotSettings.vue";
 
 const { ipcRenderer } = window.require("electron");
 const { t: $t, locale } = useI18n();
@@ -134,16 +147,22 @@ const botSettings = [
   { brand: "bard", component: BardBotSettings },
   { brand: "bingChat", component: BingChatBotSettings },
   { brand: "characterAI", component: CharacterAIBotSettings },
-  { brand: "chatGpt", component: ChatGPTBotSettings },
   { brand: "chatGlm", component: ChatGLMBotSettings },
+  { brand: "chatGpt", component: ChatGPTBotSettings },
   { brand: "claudeAi", component: ClaudeAIBotSettings },
+  { brand: "claudeApi", component: ClaudeAPIBotSettings },
+  { brand: "cohereApi", component: CohereAPIBotSettings },
   { brand: "falcon", component: Falcon180bBotSettings },
+  { brand: "geminiApi", component: GeminiAPIBotSettings },
   { brand: "gradio", component: GradioAppBotSettings },
+  { brand: "groqApi", component: GroqAPIBotSettings },
   { brand: "huggingChat", component: HuggingChatBotSettings },
+  { brand: "kimi", component: KimiBotSettings },
   { brand: "lmsys", component: LMSYSBotSettings },
+  { brand: "mistral", component: MistralBotSettings },
   { brand: "moss", component: MOSSBotSettings },
   { brand: "openaiApi", component: OpenAIAPIBotSettings },
-  { brand: "openAssistant", component: OpenAssistantBotSettings },
+  { brand: "perplexity", component: PerplexityBotSettings },
   { brand: "phind", component: PhindBotSettings },
   { brand: "pi", component: PiBotSettings },
   { brand: "poe", component: PoeBotSettings },
@@ -194,6 +213,23 @@ const closeDialog = () => {
   emit("update:open", false);
   emit("done");
 };
+
+const settings = [
+  {
+    type: Type.Checkbox,
+    name: "isShowMenuBar",
+    label: $t("settings.showMenuBar"),
+  },
+];
+
+watch(
+  () => store.state.general.isShowMenuBar,
+  () =>
+    ipcRenderer.invoke(
+      "set-is-show-menu-bar",
+      store.state.general.isShowMenuBar,
+    ),
+);
 </script>
 
 <style scoped>

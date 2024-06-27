@@ -12,6 +12,7 @@ module.exports = defineConfig({
         directories: {
           buildResources: "src/assets",
         },
+        compression: "maximum",
         mac: {
           category: "public.app-category.utilities",
           target: "default",
@@ -32,7 +33,6 @@ module.exports = defineConfig({
         },
         linux: {
           target: ["AppImage", "deb"],
-          icon: "src/assets/icon.png",
         },
         nsis: {
           oneClick: false,

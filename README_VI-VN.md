@@ -4,6 +4,8 @@
 
 [Deutsch](README_DE-DE.md) | [English](README.md) | [Español](README_ES-ES.md) | [Français](README_FR-FR.md) | [Italian](README_IT-IT.md) | [日本語](README_JA-JP.md) | [한국어](README_KO-KR.md) | [Русский](README_RU-RU.md) | Tiếng Việt | [简体中文](README_ZH-CN.md)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/sunner/ChatALL)
+
 </div>
 
 ## Ảnh chụp màn hình
@@ -16,24 +18,39 @@ Các Chat bots AI dựa trên Mô hình ngôn ngữ lớn (Large Language Models
 
 ### Danh sách AI Bots được hỗ trợ
 
-| AI Bots                                                      | Truy cập Web | API          | Ghi chú                                               |
-| ------------------------------------------------------------ | ------------ | ------------ | ----------------------------------------------------- |
-| [ChatGPT](https://chat.openai.com)                           | Có           | Có           | Bao gồm cả trình duyệt Web                            |
-| [Bing Chat](https://www.bing.com/new)                        | Có           | Không có API |                                                       |
-| [Baidu ERNIE](https://yiyan.baidu.com/)                      | No           | Có           |                                                       |
-| [Bard](https://bard.google.com/)                             | Có           | Không có API |                                                       |
-| [Poe](https://poe.com/)                                      | Có           | Sắp ra mắt   |                                                       |
-| [MOSS](https://moss.fastnlp.top/)                            | Có           | Không có API |                                                       |
-| [Tongyi Qianwen](http://tongyi.aliyun.com/)                  | Có           | Sắp ra mắt   |                                                       |
-| [Dedao Learning Assistant](https://ai.dedao.cn/)             | Sắp ra mắt   | Không có API |                                                       |
-| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                    | Có           | Sắp ra mắt   |                                                       |
-| [Alpaca](https://crfm.stanford.edu/2023/03/13/alpaca.html)   | Có           | Không có API | Không yêu cầu tài khoản hoặc khóa API                 |
-| [Vicuna](https://lmsys.org/blog/2023-03-30-vicuna/)          | Có           | Không có API | Không yêu cầu tài khoản hoặc khóa API                 |
-| [ChatGLM](https://chatglm.cn/blog)                           | Có           | Không có API | Không yêu cầu tài khoản hoặc khóa API                 |
-| [Claude](https://www.anthropic.com/index/introducing-claude) | Có           | Không có API | Không yêu cầu tài khoản hoặc khóa API                 |
-| [Gradio](https://gradio.app/)                                | Có           | Không có API | Dành cho models Hugging Face không gian/tự triển khai |
-| [HuggingChat](https://huggingface.co/chat/)                  | Có           | Không có API |                                                       |
-| [QianWen](https://qianwen.aliyun.com/)                       | Có           | Sắp ra mắt   |                                                       |
+| AI Bots                                                                        | Truy cập Web | API          | Ghi chú                                               |
+| ------------------------------------------------------------------------------ | ------------ | ------------ | ----------------------------------------------------- |
+| [360 AI Brain](https://ai.360.cn/)                                             | Có           | Không có     |                                                       |
+| [Baidu ERNIE](https://yiyan.baidu.com/)                                        | No           | Có           |                                                       |
+| [Character.AI](https://character.ai/)                                          | Có           | Không có     |                                                       |
+| [ChatGLM2 6B & 130B](https://chatglm.cn/)                                      | Có           | Không có API | Không yêu cầu tài khoản                              |
+| [ChatGPT](https://chat.openai.com)                                             | Có           | Có           | Bao gồm cả trình duyệt Web, Azure OpenAI service       |
+| [Claude](https://www.anthropic.com/claude)                                     | Có           | Có           |                                                       |
+| [Code Llama](https://ai.meta.com/blog/code-llama-large-language-model-coding/) | Có           | Không có     |                                                       |
+| [Các mô hình Cohere Command R](https://cohere.com/command)                     | Không        | Có           |                                                       |
+| [Copilot](https://copilot.microsoft.com/)                                      | Có           | Không có API |                                                       |
+| [Dedao Learning Assistant](https://ai.dedao.cn/)                               | Sắp ra mắt   | Không có API |                                                       |
+| [Falcon 180B](https://huggingface.co/tiiuae/falcon-180B-chat)                  | Có           | Không có     |                                                       |
+| [Gemini](https://gemini.google.com/)                                           | Có           | Có           |                                                       |
+| [Gemma 2B & 7B](https://blog.google/technology/developers/gemma-open-models/)  | Có           | Không có     |                                                       |
+| [Gradio](https://gradio.app/)                                                  | Có           | Không có API | Dành cho models Hugging Face không gian/tự triển khai |
+| [Groq Cloud](https://console.groq.com/docs/models)                             | Không có     | Có           |                                                       |
+| [HuggingChat](https://huggingface.co/chat/)                                    | Có           | Không có API |                                                       |
+| [iFLYTEK SPARK](http://xinghuo.xfyun.cn/)                                      | Có           | Sắp ra mắt   |                                                       |
+| [Kimi](https://kimi.moonshot.cn/)                                              | Có           | Không có     |                                                       |
+| [Llama 2 13B & 70B](https://ai.meta.com/llama/)                                | Có           | Không có     |                                                       |
+| [MOSS](https://moss.fastnlp.top/)                                              | Có           | Không có API |                                                       |
+| [Perplexity](https://www.perplexity.ai/)                                       | Có           | Không có     |                                                       |
+| [Phind](https://www.phind.com/)                                                | Có           | Không có     |                                                       |
+| [Pi](https://pi.ai)                                                            | Có           | Không có     |                                                       |
+| [Poe](https://poe.com/)                                                        | Có           | Sắp ra mắt   |                                                       |
+| [SkyWork](https://neice.tiangong.cn/)                                          | Có           | Sắp ra mắt   |                                                       |
+| [Tongyi Qianwen](http://tongyi.aliyun.com/)                                    | Có           | Sắp ra mắt   |                                                       |
+| [Vicuna 13B & 33B](https://lmsys.org/blog/2023-03-30-vicuna/)                  | Có           | Không có API | Không yêu cầu tài khoản                              |
+| [WizardLM 70B](https://github.com/nlpxucan/WizardLM)                           | Có           | Không có     |                                                       |
+| [YouChat](https://you.com/)                                                    | Có           | Không có     |                                                       |
+| [You](https://you.com/)                                                        | Có           | Không có     |                                                       |
+| [Zephyr](https://huggingface.co/spaces/HuggingFaceH4/zephyr-chat)              | Có           | Không có     |                                                       |
 
 Và hơn thế nữa ...
 
@@ -112,7 +129,7 @@ npm run electron:build -- -wml --x64 --arm64
 ### Vài thông tin khác
 
 - GPT-4 đóng góp rất nhiều mã nguồn
-- ChatGPT, Bing Chat và Google cung cấp nhiều giải pháp (được xếp hạng theo thứ tự)
+- ChatGPT, Copilot và Google cung cấp nhiều giải pháp (được xếp hạng theo thứ tự)
 - Lấy cảm hứng từ [ChatHub](https://github.com/chathub-dev/chathub). Tôn trọng!
 
 ## Sponsor

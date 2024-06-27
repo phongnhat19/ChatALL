@@ -8,11 +8,8 @@ import Chats from "@/store/chats";
 import Messages from "@/store/messages";
 import { v4 as uuidv4 } from "uuid";
 import Threads from "./threads";
+import { messageQueue, threadMessageQueue } from "./queue";
 
-let isThrottleMessage = false;
-let isThrottleThreadMessage = false;
-let messageBuffer = [];
-let threadMessageBuffer = [];
 const vuexPersist = new VuexPersistence({
   key: "chatall-app",
   storage: localForage,
@@ -30,6 +27,24 @@ export default createStore({
     uuid: "",
     lang: "auto",
     columns: 2,
+    geminiApi: {
+      apiKey: "",
+      temperature: 0.7,
+      pastRounds: 5,
+      topK: 16,
+      topP: 0.95,
+    },
+    claudeApi: {
+      apiKey: "",
+      temperature: 0,
+      alterUrl: "",
+      maxTokens: 1000,
+    },
+    cohereApi: {
+      apiKey: "",
+      temperature: 0.8,
+      pastRounds: 5,
+    },
     openaiApi: {
       apiKey: "",
       temperature: 1,
@@ -52,11 +67,24 @@ export default createStore({
       url: "",
       fnIndex: 0,
     },
+    mistral: {
+      model: "mistral-large",
+    },
+    groqApi: {
+      apiKey: "",
+      temperature: 0,
+      maxTokens: 1000,
+      pastRounds: 1,
+    },
     moss: {
       token: "",
     },
     chatGlm: {
       token: "",
+    },
+    kimi: {
+      access_token: "",
+      refresh_token: "",
     },
     qianWen: {
       xsrfToken: "",
@@ -71,11 +99,16 @@ export default createStore({
       pastRounds: 5,
     },
     characterAI: {
-      token: "",
-      ttl: 0,
+      characterId: "YntB_ZeqRq2l_aVf2gWDCZl4oBttQzDvhj9cXafWcF8",
+      version: "",
+      username: "",
+      id: "",
     },
     claudeAi: {
       org: "",
+    },
+    perplexity: {
+      version: "2.5",
     },
     poe: {
       formkey: "",
@@ -107,6 +140,13 @@ export default createStore({
       },
     ],
     selectedResponses: [],
+    chat: {
+      updateDebounceInterval: 100,
+    },
+    general: {
+      isShowMenuBar: true,
+      isShowAppBar: true,
+    },
   },
   mutations: {
     changeColumns(state, n) {
@@ -146,6 +186,12 @@ export default createStore({
         favBots,
       });
     },
+    async setFavoriteBot(state, favBots) {
+      const currentChat = await Chats.getCurrentChat();
+      Chats.table.update(currentChat.index, {
+        favBots,
+      });
+    },
     async removeFavoriteBot(state, botClassname) {
       const currentChat = await Chats.getCurrentChat();
       for (let i = 0; i < currentChat.favBots.length; i++) {
@@ -167,6 +213,9 @@ export default createStore({
     setChatgpt(state, refreshCycle) {
       state.chatgpt.refreshCycle = refreshCycle;
     },
+    setGeminiApi(state, values) {
+      state.geminiApi = { ...state.geminiApi, ...values };
+    },
     setOpenaiApi(state, values) {
       state.openaiApi = { ...state.openaiApi, ...values };
     },
@@ -185,11 +234,17 @@ export default createStore({
     setSkyWork(state, tokens) {
       state.skyWork = { ...state.skyWork, ...tokens };
     },
+    setKimi(state, tokens) {
+      state.kimi = { ...state.kimi, ...tokens };
+    },
     setWenxinQianfan(state, values) {
       state.wenxinQianfan = { ...state.wenxinQianfan, ...values };
     },
     setGradio(state, values) {
       state.gradio = { ...state.gradio, ...values };
+    },
+    setGroq(state, values) {
+      state.groq = { ...state.groq, ...values };
     },
     setCharacterAI(state, values) {
       state.characterAI = { ...state.characterAI, ...values };
@@ -197,11 +252,23 @@ export default createStore({
     setClaudeAi(state, values) {
       state.claudeAi = { ...state.claudeAi, ...values };
     },
+    setClaudeApi(state, values) {
+      state.claudeApi = { ...state.claudeApi, ...values };
+    },
+    setCohereApi(state, values) {
+      state.cohereApi = { ...state.cohereApi, ...values };
+    },
+    setPerplexity(state, values) {
+      state.perplexity = { ...state.perplexity, ...values };
+    },
     setPoe(state, values) {
       state.poe = { ...state.poe, ...values };
     },
     setPhind(state, values) {
       state.phind = { ...state.phind, ...values };
+    },
+    setMistral(state, values) {
+      state.mistral = { ...state.mistral, ...values };
     },
     setLatestPromptIndex(state, promptIndex) {
       Chats.table.update(state.currentChatIndex, {
@@ -219,24 +286,6 @@ export default createStore({
     setResponseThreadIndex(state, { responseIndex, threadIndex }) {
       const currentChat = state.chats[state.currentChatIndex];
       currentChat.messages[responseIndex].threadIndex = threadIndex;
-    },
-    async updateMessage(state) {
-      for (const update of messageBuffer) {
-        const { index, message } = update;
-        await Messages.table.update(index, message);
-      }
-      state.updateCounter += 1;
-      messageBuffer = [];
-      isThrottleMessage = false;
-    },
-    async updateThreadMessage(state) {
-      for (const update of threadMessageBuffer) {
-        const { index, message } = update;
-        await Threads.table.update(index, message);
-      }
-      state.updateCounter += 1;
-      threadMessageBuffer = [];
-      isThrottleThreadMessage = false;
     },
     setMessages(state, messages) {
       const currentChat = state.chats[state.currentChatIndex];
@@ -261,6 +310,9 @@ export default createStore({
     },
     setMode(state, mode) {
       state.mode = mode;
+    },
+    setGeneral(state, values) {
+      state.general = { ...state.general, ...values };
     },
     createChat(state) {
       const { favBots } = state.chats[state.currentChatIndex];
@@ -398,10 +450,29 @@ export default createStore({
       }
       localStorage.setItem("isMigrateSettingArrayIndexUseUUID", true);
     },
+    setChat(state, values) {
+      values = {
+        ...values,
+        updateDebounceInterval: parseInt(values.updateDebounceInterval),
+      };
+      state.chat = { ...state.chat, ...values };
+    },
   },
   actions: {
+    async setBotSelected(_, { botClassname, selected }) {
+      const currentChat = await Chats.getCurrentChat();
+      for (let i = 0; i < currentChat.favBots.length; i++) {
+        const bot = currentChat.favBots[i];
+        if (bot.classname === botClassname) {
+          bot.selected = selected;
+          await Chats.table.update(currentChat.index, {
+            favBots: currentChat.favBots,
+          });
+          return;
+        }
+      }
+    },
     async sendPrompt({ commit, dispatch }, { prompt, bots, promptIndex }) {
-      isThrottleMessage = false;
       const currentChat = await Chats.getCurrentChat();
       if (promptIndex === undefined) {
         // if promptIndex not found, not resend, push to messages array
@@ -453,8 +524,6 @@ export default createStore({
       { commit, state, dispatch },
       { prompt, bot, messageIndex, promptIndex },
     ) {
-      isThrottleThreadMessage = false;
-
       if (!promptIndex) {
         // not resend
         const threadPromptMessage = {
@@ -497,15 +566,8 @@ export default createStore({
         prompt.length,
       );
     },
-    async updateMessage({ commit }, { index, message: values }) {
-      messageBuffer.push({ index, message: values });
-      if (!isThrottleMessage) {
-        isThrottleMessage = true;
-        setTimeout(() => {
-          commit("updateMessage");
-          commit("incrementUpdateCounter");
-        }, 200); // save every 0.2 seconds
-      }
+    async updateMessage(_, { index, message: values }) {
+      messageQueue.queue.push({ index, message: values });
       if (values.done) {
         const chat = await Messages.table.get(index);
         const message = { ...chat, ...values };
@@ -517,15 +579,8 @@ export default createStore({
         );
       }
     },
-    async updateThreadMessage({ commit }, { index, message: values }) {
-      threadMessageBuffer.push({ index, message: values });
-      if (!isThrottleThreadMessage) {
-        isThrottleThreadMessage = true;
-        setTimeout(() => {
-          commit("updateThreadMessage");
-          commit("incrementUpdateCounter");
-        }, 200); // save every 0.2 seconds
-      }
+    async updateThreadMessage(_, { index, message: values }) {
+      threadMessageQueue.queue.push({ index, message: values });
       if (values.done) {
         const thread = await Threads.table.get(index);
         let message = { ...thread, ...values };

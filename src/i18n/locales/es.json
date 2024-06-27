@@ -18,7 +18,11 @@
     "system": "Sistema",
     "light": "Luz",
     "dark": "Oscuro",
-    "bots": "Bots de IA"
+    "bots": "Bots de IA",
+    "showMenuBar": "Mostrar barra de menús"
+  },
+  "common": {
+    "apiKey": "Clave API"
   },
   "header": {
     "clearMessages": "¿Borrar todos los mensajes en este chat?",
@@ -77,14 +81,14 @@
     "azureApiInstanceNamePrompt": "Ver el nombre de la instancia en https://portal.azure.com/#view/Microsoft_Azure_ProjectOxford/CognitiveServicesHub/~/OpenAI",
     "azureOpenAIApiDeploymentName": "Nombre de implementación",
     "azureOpenAIApiDeploymentNamePrompt": "Ver el nombre de la implementación en Management -> Deployments at https://oai.azure.com/",
-    "azureOpenAIApiVersion": "Versión",
+    "azureOpenAIApiVersion": "Versión de la API",
     "azureOpenAIApiVersionPrompt": "Obtenga las versiones compatibles de https://learn.microsoft.com/en-us/azure/cognitive-services/openai/reference#completions"
   },
   "bard": {
     "name": "Bardo"
   },
   "bingChat": {
-    "name": "Bing Chat",
+    "name": "Copilot",
     "solveCaptcha": "Necesitas <a {=\"\" attributes=\"\" }=\"\">resolver CAPTCHA</a> para continuar.",
     "h3imaginative": "Creativo",
     "galileo": "Equilibrado",
@@ -100,11 +104,29 @@
     "notice": "Solo los miembros Plus de pago pueden usar GPT-4",
     "text-davinci-002-render-sha": "GPT-3.5",
     "gpt-4": "GPT-4",
-    "gpt-4-browsing": "Navegación Web",
     "gpt-4-mobile": "GPT-4 móvil V2"
   },
+  "geminiApi": {
+    "name": "Gemini API",
+    "gemini-pro": "Gemini-Pro",
+    "gemini-15-pro-latest": "Gemini 1.5 Pro",
+    "gemini-15-flash-latest": "Gemini 1.5 Flash",
+    "topK": "topK",
+    "topKPrompt": "Un topK de 1 significa que el token seleccionado es el más probable entre todos los tokens en el vocabulario del modelo (también llamado decodificación voraz).",
+    "topP": "topP",
+    "topPPrompt": "Los tokens se seleccionan desde el más probable hasta el menos probable hasta que la suma de sus probabilidades iguale el valor de topP"
+  },
+  "cohereApi": {
+    "name": "Cohere API",
+    "command": "Command",
+    "command-light": "Command Light",
+    "command-r": "Command R",
+    "command-r-plus": "Command R+",
+    "temperature": "Temperatura",
+    "temperaturePrompt": "El ajuste de la aleatoriedad en las respuestas del modelo varía de 0 a 5. Un valor más bajo asegura precisión y consistencia en las salidas, ideal para tareas que requieren información exacta, como la elaboración de resúmenes. En cambio, un valor más alto fomenta la creatividad, aunque puede disminuir la coherencia en contextos específicos o respuestas breves."
+  },
   "claudeAi": {
-    "name": "Claude 2"
+    "name": "Claude"
   },
   "ernie": {
     "name": "ERNIE"
@@ -140,12 +162,12 @@
     "gpt-35-turbo": "GPT-3.5-turbo",
     "gpt-35-turbo-16k": "GPT-3.5-Turbo-16K",
     "gpt-4": "GPT-4",
-    "gpt-4-1106-preview": "gpt-4-1106-preview",
+    "gpt-4-turbo": "gpt-4-turbo",
+    "gpt-4o": "gpt-4o",
     "temperature": "Temperatura",
     "temperaturePrompt": "Cuanto mayor sea la temperatura, más creativo será el texto, pero más probable es que sea incoherente.",
     "temperature0": "Más determinista",
-    "temperature2": "Más aleatorio",
-    "apiKey": "Clave API"
+    "temperature2": "Más aleatorio"
   },
   "poe": {
     "name": "Poe",
@@ -155,7 +177,10 @@
     "beaver": "GPT-4",
     "capybara": "Assistant",
     "chinchilla": "ChatGPT 3.5",
-    "vizcacha": "GPT-4-32k"
+    "vizcacha": "GPT-4-32k",
+    "code_llama_34b_instruct": "Code-Llama-34b",
+    "acouchy": "Google-PaLM-2",
+    "llama_2_70b_chat": "Llama-2-70b"
   },
   "qianWen": {
     "name": "QianWen"
@@ -178,12 +203,16 @@
     "name": "Pi",
     "waitPiIntro": "Haga clic en el enlace del sitio web del chatbot a continuación y espere a que finalice la introducción de Pi, luego cierre la ventana."
   },
-  "openAssistant": {
-    "name": "Asistente para abrir",
-    "queue": "Hay { queue_size } solicitudes en la cola, estás en { queue_position }º lugar"
-  },
   "dev": {
     "name": "Bot de desarrollo"
+  },
+  "groqApi": {
+    "name": "Groq API",
+    "llama2-70b-4096": "LLaMA2 70b",
+    "llama3-8b-8192": "Llama 3 8b",
+    "llama3-70b-8192": "Llama 3 70b",
+    "mixtral-8x7b-32768": "Mixtral 8x7b",
+    "gemma-7b-it": "Gemma 7b"
   },
   "updates": {
     "updateAvailable": "¡Actualización disponible!",
